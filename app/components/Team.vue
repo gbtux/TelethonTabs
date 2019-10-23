@@ -3,7 +3,7 @@
     <DockLayout stretchLastChild="true">
         <Header dock="top" />
         <ScrollView>
-            <StackLayout dock="center" class="preload" >
+            <StackLayout dock="center" class="preload">
                 <card-view ripple margin="5" class="whiteCard">
                     <GridLayout rows="200, auto, auto" columns="*, *">
                         <Image src="~/assets/noteam-unsplash.jpg" stretch="aspectFill" margin="10" colSpan="2" row="0" ></Image>
@@ -13,14 +13,12 @@
                 </card-view>
                 <Label class="lbl h3 info" text="Participants"/>
                 <card-view ripple margin="5" class="whiteCard">
-                    <ListView for="participant in participants" class="list-group">
-                        <v-template>
-                            <GridLayout rows="50" columns="auto, *">
-                                <Image col="0" :src="participant.icon" class="avatar thumb img-circle" margin="10"></Image>
-                                <Label col="1" class="info" :text="participant.nom"></Label>
-                            </GridLayout>
-                        </v-template>
-                    </ListView>
+                    <FlexboxLayout flexDirection="column">
+                        <GridLayout rows="*" columns="auto, *" v-for="(participant, index) in participants" :key="index">
+                            <Image col="0" :src="participant.icon" class="avatar thumb img-circle" margin="10"></Image>
+                            <Label col="1" class="info" :text="participant.nom"></Label>
+                        </GridLayout>
+                    </FlexboxLayout>
                 </card-view>
             </StackLayout>
         </ScrollView>
@@ -34,7 +32,7 @@ import TeamCreate from './TeamCreate';
 
 export default {
     components: { Header},
-    data: () => {
+    data() {
         return {
             participants: [
                 { 
