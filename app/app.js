@@ -1,5 +1,6 @@
 import Vue from "nativescript-vue";
 import App from "./components/App";
+import store from "./store/"
 
 Vue.registerElement(
     'CardView',
@@ -7,5 +8,6 @@ Vue.registerElement(
   );
   
 new Vue({
-    render: h => h(App)
+    render: h => h(App),
+    store
 }).$start();

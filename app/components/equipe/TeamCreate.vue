@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import ActionBarLogo from './include/ActionBarLogo'
+import ActionBarLogo from '../include/ActionBarLogo'
 import Team from './Team'
 
 export default {
@@ -55,15 +55,18 @@ export default {
                 ville: '',
                 password: '',
                 isOrganisatrice: false,
-                isCoordinatrice: false
+                isCoordinatrice: false,
+                participants: []
             }
         }
     },
     methods: {
         submitForm() {
-            //todo : submit form in store
+            //submit form in store
             //then redirect team (if OK)
-            this.$navigateTo(Team);
+            this.$store.dispatch('equipe/createEquipe', {equipe: this.form}).then(() => {
+                this.$navigateTo(Team);
+            });
         }
     }
 }

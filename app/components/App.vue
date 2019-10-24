@@ -23,13 +23,13 @@
 
         <TabContentItem>
             <Frame>
-                <Browse />
+                <Defis />
             </Frame>
         </TabContentItem>
 
         <TabContentItem>
             <Frame>
-                <Search />
+                <Resultats />
             </Frame>
         </TabContentItem>
 
@@ -37,15 +37,15 @@
 </template>
 
 <script>
-import Team from "./Team.vue";
-import Browse from "./Browse.vue";
-import Search from "./Search.vue";
+import Team from "./equipe/Team.vue";
+import Defis from "./defis/Defis";
+import Resultats from "./resultats/Resultats";
 
 export default {
   components: {
     Team,
-    Browse,
-    Search
+    Defis,
+    Resultats
   }
 };
 </script>
