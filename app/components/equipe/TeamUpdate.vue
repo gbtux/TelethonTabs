@@ -39,6 +39,7 @@
                             <GridLayout rows="*" columns="auto, *" v-for="(participant, index) in equipe.participants" :key="index">
                                 <Image col="0" :src="participant.icon" class="avatar thumb img-circle" margin="10"></Image>
                                 <Label col="1" class="info" :text="participant.nom"></Label>
+                                <Button col="2" text.decode="&#xf35a;" width="24" class="primary m-r-15 pull-right far t-24 btn-rounded-xs" @tap="goParticipant(index)"></Button>
                             </GridLayout>
                             <Button class="btn btn-primary" text="Ajouter" @tap="addParticipant" />
                         </FlexboxLayout>
@@ -52,6 +53,7 @@
 import {mapGetters} from 'vuex'
 import ActionBarLogo from '../include/ActionBarLogo'
 import TeamParticipantCreate from './TeamParticipantCreate';
+import TeamParticipant from './TeamParticipant';
 
 export default {
     components: { ActionBarLogo },
@@ -73,6 +75,9 @@ export default {
         },
         addParticipant() {
             this.$navigateTo(TeamParticipantCreate);
+        },
+        goParticipant(index) {
+            this.$navigateTo(TeamParticipant, { props: { index: index }});
         }
     }
 }
@@ -100,5 +105,12 @@ export default {
         width: 30;
         height: 30;
     }
+    .btn-rounded-xs {
+        border-radius: 24;
+        height: 24; // These will not inherit from above - important to keep here
+        width: 12 !important;
+        padding: 0; // <--
+    }
+
     
 </style>

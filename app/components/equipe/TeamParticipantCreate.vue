@@ -16,7 +16,6 @@
                             <Pager height="50%" for="item in items" v-on:selectedIndexChange="onAvatarChange">
                                 <v-template>
                                     <GridLayout class="pager-item" rows="auto, *" columns="*">
-                                        <!-- <Label :text="item.title"></Label> -->
                                         <Image row="1" height="300px" :src="item.image"></Image>
                                     </GridLayout>
                                 </v-template>
@@ -44,8 +43,16 @@ export default {
                 icon: '~/assets/avatars/512/iconfinder_man_male_avatar_portrait_4043260.png'
             },
             items: [
-                { title: '1', image: '~/assets/avatars/512/iconfinder_man_male_avatar_portrait_4043260.png'},
-                { title: '2', image: '~/assets/avatars/512/iconfinder_girl_female_woman_avatar_4043251.png'}
+                { title: '1',  image: '~/assets/avatars/512/iconfinder_man_male_avatar_portrait_4043260.png'},
+                { title: '2',  image: '~/assets/avatars/512/iconfinder_girl_female_woman_avatar_4043251.png'},
+                { title: '3', image: '~/assets/avatars/512/iconfinder_afro_man_male_avatar_4043229.png'},
+                { title: '4',  image: '~/assets/avatars/512/iconfinder_boy_male_avatar_portrait_4043236.png'},
+                { title: '5',  image: '~/assets/avatars/512/iconfinder_chaplin_comedy_actor_man_4043243.png'},
+                { title: '6', image: '~/assets/avatars/512/iconfinder_afro_avatar_male_man_4043279.png'},
+                { title: '7', image: '~/assets/avatars/512/iconfinder_girl_avatar_child_kid_4043250.png'},
+                { title: '8', image: '~/assets/avatars/512/iconfinder_hipster_beard_male_man_4043255.png'},
+                { title: '9', image: '~/assets/avatars/512/iconfinder_scientist_einstein_avatar_professor_4043274.png'},
+                { title: '10', image: '~/assets/avatars/512/iconfinder_afro_woman_female_person_4043231.png'},
             ]
         }
     },
@@ -56,7 +63,6 @@ export default {
             });
         },
         onAvatarChange(index) {
-            console.log(index)
             this.form.icon = this.items[index].image
         }
     },

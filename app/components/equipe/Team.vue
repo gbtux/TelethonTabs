@@ -47,19 +47,6 @@ import TeamUpdate from './TeamUpdate';
 
 export default {
     components: { Header},
-    data() {
-        return {
-            participants: [
-                { 
-                    icon: "~/assets/avatars/iconfinder_man_male_avatar_portrait_4043260.png", 
-                    nom: "Bob l'eponge"
-                },{
-                    icon: "~/assets/avatars/iconfinder_girl_female_woman_avatar_4043251.png", 
-                    nom: "Jocelyne Brown"
-                }
-            ]
-        }
-    },
     computed: {
         ...mapGetters('equipe', { equipe: 'equipe'})
     },
@@ -68,7 +55,6 @@ export default {
             this.$navigateTo(TeamCreate);
         },
         modifyTeam() {
-            console.log('navigate')
             this.$navigateTo(TeamUpdate);
         }
     }
@@ -76,11 +62,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// Start custom common variables
-//@import "../../app-variables";
-// End custom common variables
 
-// Custom styles
 .page{
    background-color : #fbc62d;
 }

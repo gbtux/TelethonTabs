@@ -14,6 +14,11 @@ export default {
         },
         equipe: function (state) {
             return state.equipe
+        },
+        participant: function(state) {
+            return (index) => {
+                return state.equipe.participants[index]
+            }
         }
     },
 
@@ -26,12 +31,14 @@ export default {
         },
         addParticipant(state, { participant }) {
             state.equipe.participants.push(participant)
+        },
+        removeParticipant(state, { participant }) {
+            state.equipe.participants.splice(participant, 1);
         }
     },
 
     actions: {
         createEquipe: function(context, { equipe }) {
-            console.log(equipe)
             //TODO : save in backend 
             return new Promise((resolve, reject) => {
                 context.commit('setEquipe', { equipe : equipe })
@@ -42,6 +49,13 @@ export default {
         addParticipant: function(context, { participant }) {
             return new Promise((resolve, reject) => {
                 context.commit('addParticipant', { participant : participant })
+                resolve()
+            })
+        },
+
+        deleteParticipant: function(context, { p }) {
+            return new Promise((resolve, reject) => {
+                context.commit('removeParticipant', { participant : p })
                 resolve()
             })
         }
