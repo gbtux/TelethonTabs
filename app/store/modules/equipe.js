@@ -23,6 +23,9 @@ export default {
         },
         setEquipe(state, { equipe }) {
             state.equipe = equipe
+        },
+        addParticipant(state, { participant }) {
+            state.equipe.participants.push(participant)
         }
     },
 
@@ -32,6 +35,13 @@ export default {
             //TODO : save in backend 
             return new Promise((resolve, reject) => {
                 context.commit('setEquipe', { equipe : equipe })
+                resolve()
+            })
+        },
+
+        addParticipant: function(context, { participant }) {
+            return new Promise((resolve, reject) => {
+                context.commit('addParticipant', { participant : participant })
                 resolve()
             })
         }

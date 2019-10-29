@@ -21,7 +21,7 @@
                 <Label class="lbl h3 info" text="Participants" v-if="equipe.nom && equipe.participants.length > 0"/>
                 <card-view ripple margin="5" class="whiteCard" v-if="equipe.nom">
                     <FlexboxLayout flexDirection="column" v-if="equipe.participants.length > 0">
-                        <GridLayout rows="*" columns="auto, *" v-for="(participant, index) in participants" :key="index">
+                        <GridLayout rows="*" columns="auto, *" v-for="(participant, index) in equipe.participants" :key="index">
                             <Image col="0" :src="participant.icon" class="avatar thumb img-circle" margin="10"></Image>
                             <Label col="1" class="info" :text="participant.nom"></Label>
                         </GridLayout>
